@@ -1,0 +1,33 @@
+<h1>Bank Clients</h1>
+
+<p *ngIf="!(bankClients$ |async)">Loading...</p>
+
+<p>
+    <a [routerLink]="['/add']" class="btn btn-primary float-right mb3">New Client</a>
+</p>
+
+<table class="table table-sm table-hover" *ngIf="(bankClients$ |async)!.length>0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Office</th>
+            <th>Date Of Birth</th>
+            <th>Next Of Kin</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bankClient of (bankClients$ | async)">
+            <td>{{bankClient.Id}}</td>
+            <td><a [routerLink]="['/bankclient', bankClient.Id]">{{bankClient.Name}</a></td>
+            <td>{{bankClient.Office}}</td>
+            <td>{{bankClient.DateOfBirth | date:'dd.MM.y'}}</td>
+            <td>{{bankClient.NextOfKin}}</td>
+
+            <td><a [routerLink]="['/bankclient/edit/', bankClient.Id]" class="btn btn-danger btn-sm float-right">Edit</a></td>
+            <td><a routerLink="" (click)="delete(bankClient.Id)" class="btn btn-danger btn small float-right">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
