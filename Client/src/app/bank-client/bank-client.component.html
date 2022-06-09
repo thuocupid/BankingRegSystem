@@ -1,1 +1,10 @@
-<p>bank-client works!</p>
+<ng-container *ngIf="(bankClient$ | async) as bankClient; else loading">
+    <h1>{{bankClient.name}}</h1>
+    <ul>
+        <li>{{bankClient.office}}</li>
+        <li>{{bankClient.dateOfBirth}}</li>
+        <li>{{bankClient.nextofKin}}</li>
+    </ul>
+</ng-container>
+
+<ng-template #loading>Loading...</ng-template>

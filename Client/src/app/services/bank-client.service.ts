@@ -34,7 +34,7 @@ export class BankClientService {
    }
 
    getBankClient(Id: number): Observable<BankClient>{
-     return this.http.get<BankClient>(this.myAppUrl + this.myApiUrl + Id)
+     return this.http.get<BankClient>(this.myAppUrl + this.myApiUrl + '/'+Id)
      .pipe(
        
        retry(1),
@@ -51,7 +51,7 @@ export class BankClientService {
    }
 
    updateBankClient(Id: number): Observable<BankClient>{
-     return this.http.delete<BankClient>(this.myAppUrl + this.myApiUrl + Id)
+     return this.http.delete<BankClient>(this.myAppUrl + this.myApiUrl +'/'+ Id)
      .pipe(
        retry(1),
        catchError(this.errorHandler)
