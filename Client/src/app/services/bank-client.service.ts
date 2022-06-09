@@ -58,8 +58,8 @@ export class BankClientService {
      );
    }
 
-   deleteBankClient(id: number): Observable<BankClient>{
-     return this.http.delete<BankClient>(this.myAppUrl + this.myApiUrl + id)
+   deleteBankClient(Id: number): Observable<BankClient>{
+     return this.http.delete<BankClient>(this.myAppUrl + this.myApiUrl + '/'+Id)
      .pipe(
        retry(1), 
        catchError(this.errorHandler)

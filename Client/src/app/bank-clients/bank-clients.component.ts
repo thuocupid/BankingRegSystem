@@ -24,11 +24,11 @@ export class BankClientsComponent implements OnInit {
   }
 
   delete(id: number) {
-    const ans = confirm(`Do you wanty to delete Client with Id:` +id)
+    const ans = confirm(`Do you wanty to delete Client with Id:` + id)
     if (ans) {
       this.bankClientService.deleteBankClient(id).subscribe((data)=> {
         this.loadBankClients();
-      })
+      });
     }
   }
 
