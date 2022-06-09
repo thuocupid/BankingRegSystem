@@ -13,19 +13,20 @@ export class BankClientsComponent implements OnInit {
 
   constructor(private bankClientService: BankClientService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadBankClients();
-    console.log(this.bankClients$)
   }
 
   loadBankClients(){
     this.bankClients$ = this.bankClientService.getBankClients()
+      console.log('Response from the server',this.bankClients$)
+
   }
 
-  delete(Id: number) {
-    const ans = confirm(`Do you wanty to delete Client with Id:` +Id)
+  delete(id: number) {
+    const ans = confirm(`Do you wanty to delete Client with Id:` +id)
     if (ans) {
-      this.bankClientService.deleteBankClient(Id).subscribe((data)=> {
+      this.bankClientService.deleteBankClient(id).subscribe((data)=> {
         this.loadBankClients();
       })
     }

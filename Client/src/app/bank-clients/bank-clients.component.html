@@ -20,14 +20,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let bankClient of (bankClients$ | async)">
-            <td>{{bankClient.Id}}</td>
-            <td><a [routerLink]="['/bankclient', bankClient.Id]">{{bankClient.Name}</a></td>
-            <td>{{bankClient.Office}}</td>
-            <td>{{bankClient.DateOfBirth | date:'dd.MM.y'}}</td>
-            <td>{{bankClient.NextOfKin}}</td>
+            <td>{{bankClient.id}}</td>
+            <td><a [routerLink]="['/bankclient', bankClient.id]">{{bankClient.name}}</a></td>
+            <td>{{bankClient.office}}</td>
+            <td>{{bankClient.dateOfBirth | date:'dd.MM.y'}}</td>
+            <td>{{bankClient.nextofKin}}</td>
 
-            <td><a [routerLink]="['/bankclient/edit/', bankClient.Id]" class="btn btn-danger btn-sm float-right">Edit</a></td>
-            <td><a routerLink="" (click)="delete(bankClient.Id)" class="btn btn-danger btn small float-right">Delete</a></td>
+            <td><a [routerLink]="['/bankclient/edit/', bankClient.id]" class="btn btn-primary btn-sm float-right">Edit</a></td>
+            <td><a routerLink="" (click)="delete(bankClient.id)" class="btn btn-danger btn small float-right">Delete</a></td>
         </tr>
     </tbody>
 </table>

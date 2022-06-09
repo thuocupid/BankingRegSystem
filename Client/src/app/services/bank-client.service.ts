@@ -20,7 +20,7 @@ export class BankClientService {
 
   constructor(private http:HttpClient) {
     this.myAppUrl = environment.appUrl;
-    this.myApiUrl = '/bankapp'
+    this.myApiUrl = "/bankapp"
    }
 
    getBankClients(): Observable<BankClient[]>{
@@ -29,11 +29,14 @@ export class BankClientService {
        retry(1),
        catchError(this.errorHandler)
      );
+     
+     
    }
 
    getBankClient(Id: number): Observable<BankClient>{
      return this.http.get<BankClient>(this.myAppUrl + this.myApiUrl + Id)
      .pipe(
+       
        retry(1),
        catchError(this.errorHandler)
      );
@@ -55,8 +58,8 @@ export class BankClientService {
      );
    }
 
-   deleteBankClient(Id: number): Observable<BankClient>{
-     return this.http.delete<BankClient>(this.myAppUrl + this.myApiUrl + Id)
+   deleteBankClient(id: number): Observable<BankClient>{
+     return this.http.delete<BankClient>(this.myAppUrl + this.myApiUrl + id)
      .pipe(
        retry(1), 
        catchError(this.errorHandler)

@@ -1,7 +1,7 @@
 export class BankClient {
-    Id!: number;
-    Name!: string;
-    Office!: string;
-    DateOfBirth!: Date;
-    NextOfKin!: string;
+    id!: number;
+    name!: string;
+    office!: string;
+    dateOfBirth!: Date;
+    nextofKin!: string;
   }
