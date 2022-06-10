@@ -10,6 +10,7 @@ namespace bankApi.Models
 
         }
         public DbSet<BankModel> BankModels {get;set;}
+        public DbSet<Transactions> Transactions{get; set;}
         
     }
 }

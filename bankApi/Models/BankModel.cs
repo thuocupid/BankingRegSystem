@@ -13,5 +13,7 @@ namespace bankApi.Models
 
         public string? NextofKin {get;set;}
 
+        public virtual Transactions? Transactions {get; set;}
     }
+    
 }
