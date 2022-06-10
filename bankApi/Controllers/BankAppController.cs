@@ -55,7 +55,7 @@ namespace bankApi.Controllers
 
             return CreatedAtAction("Created Client", new { id = bankModel.Id }, bankModel);
         }
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutBankModel([FromRoute] int id, [FromBody] BankModel bankModel)
         {
             if (!ModelState.IsValid)
@@ -64,10 +64,10 @@ namespace bankApi.Controllers
             }
 
 
-
             if (id != bankModel.Id)
             {
                 return BadRequest();
+
             }
             _context.Entry(bankModel).State = EntityState.Modified;
 
@@ -97,7 +97,8 @@ namespace bankApi.Controllers
         public async Task<ActionResult<BankModel>> DeleteBankClient([FromRoute] int id)
         {
 
-            if(!ModelState.IsValid) {
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             var bankClientToDelete = await _context.BankModels.FindAsync(id);
@@ -107,7 +108,7 @@ namespace bankApi.Controllers
             }
             _repo.Delete(bankClientToDelete);
             var save = await _repo.SaveAsync(bankClientToDelete);
-        
+
 
             return Ok(bankClientToDelete);
         }

@@ -1,0 +1,24 @@
+<ng-container *ngIf="bankClient$ | async as bankClient; else loading">
+  <h1>{{ bankClient.name }}</h1>
+  <br />
+  <br />
+  <h3>Deposit</h3>
+  <div class="input-group mb-5">
+    <span class="input-group-text" id="basic-addon3">Enter amaount</span>
+    <input
+      type="text"
+      class="form-control"
+      id="basic-url"
+      aria-describedby="basic-addon3"
+    />
+    <button class="btn btn-outline-primary" type="button">Continue</button>
+    <button class="btn btn-outline-danger" type="button">Cancel</button>
+  </div>
+  <div>
+      <h3>New Balance: Ksh 0.00</h3>
+  </div>
+</ng-container>
+
+<div>
+  <ng-template #loading>Loading...</ng-template>
+</div>

@@ -3,7 +3,7 @@
 <p *ngIf="!(bankClients$ |async)">Loading...</p>
 
 <p>
-    <a [routerLink]="['/add']" class="btn btn-primary float-right mb3">New Client</a>
+    <a [routerLink]="['/add']" class="btn btn-primary float-end mb3">New Client</a>
 </p>
 
 <table class="table table-sm table-hover" *ngIf="(bankClients$ |async)!.length>0">

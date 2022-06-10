@@ -50,8 +50,8 @@ export class BankClientService {
      );
    }
 
-   updateBankClient(Id: number): Observable<BankClient>{
-     return this.http.delete<BankClient>(this.myAppUrl + this.myApiUrl +'/'+ Id)
+   updateBankClient(Id: number, bankClient: any): Observable<BankClient>{
+     return this.http.put<BankClient>(this.myAppUrl + this.myApiUrl +'/'+ Id, JSON.stringify(bankClient), this.httpOptions)
      .pipe(
        retry(1),
        catchError(this.errorHandler)

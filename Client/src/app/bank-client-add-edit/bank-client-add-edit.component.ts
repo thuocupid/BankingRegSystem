@@ -81,7 +81,7 @@ export class BankClientAddEditComponent implements OnInit {
         dateOfBirth: this.form.get(this.formDObInput)?.value,
         nextofKin: this.form.get(this.formNoKInput)?.value,
       }
-      this.bankClientService.updateBankClient(bankClient.id)
+      this.bankClientService.updateBankClient(bankClient.id, bankClient)
       .subscribe((data)=>{
         this.router.navigate([this.router.url]);
       });

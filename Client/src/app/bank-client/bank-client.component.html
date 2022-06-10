@@ -1,10 +1,15 @@
-<ng-container *ngIf="(bankClient$ | async) as bankClient; else loading">
-    <h1>{{bankClient.name}}</h1>
-    <ul>
-        <li>{{bankClient.office}}</li>
-        <li>{{bankClient.dateOfBirth}}</li>
-        <li>{{bankClient.nextofKin}}</li>
-    </ul>
+<ng-container *ngIf="bankClient$ | async as bankClient; else loading">
+  <h1>{{ bankClient.name }}</h1>
+  <ul>
+    <li>{{ bankClient.office }}</li>
+    <li>{{ bankClient.dateOfBirth }}</li>
+    <li>{{ bankClient.nextofKin }}</li>
+  </ul>
+  <br />
+  <div class="form-group">
+    <a [routerLink]="['/bankclient/deposit/:id']" class="btn btn-success float-start">Deposit</a>
+    <a [routerLink]="['/bankclient/withdraw/:id']" routerLinkActive="router-link-active"  class="btn btn-secondary float-end">Withdraw</a>
+  </div>
 </ng-container>
 
 <ng-template #loading>Loading...</ng-template>

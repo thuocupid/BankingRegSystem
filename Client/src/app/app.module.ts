@@ -9,6 +9,8 @@ import { BankClientComponent } from './bank-client/bank-client.component';
 import { BankClientAddEditComponent } from './bank-client-add-edit/bank-client-add-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BankClientService } from './services/bank-client.service';
+import { DepositComponent } from './deposit/deposit.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { BankClientService } from './services/bank-client.service';
     BankClientsComponent,
     BankClientComponent,
     BankClientAddEditComponent,
+    DepositComponent,
+    WithdrawComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [
