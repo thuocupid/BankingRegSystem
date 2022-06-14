@@ -27,5 +27,5 @@ export class BankClientComponent implements OnInit {
   loadBankClient(){
     this.bankClient$ = this.bankClientService.getBankClient(this.id)
   }
-
+  
 }

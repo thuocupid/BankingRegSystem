@@ -19,7 +19,6 @@ export class BankClientsComponent implements OnInit {
 
   loadBankClients(){
     this.bankClients$ = this.bankClientService.getBankClients()
-      console.log('Response from the server',this.bankClients$)
 
   }
 

@@ -58,11 +58,6 @@ namespace bankApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBankModel([FromRoute] int id, [FromBody] BankModel bankModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
 
             if (id != bankModel.Id)
             {

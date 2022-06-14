@@ -95,4 +95,5 @@ export class BankClientAddEditComponent implements OnInit {
   get office(){return this.form.get(this.formOfficeInput);}
   get dateOfBirth(){return this.form.get(this.formDObInput);}
   get nextOfKin(){return this.form.get(this.formNoKInput);}
+
 }

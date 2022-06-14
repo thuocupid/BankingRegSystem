@@ -1,23 +1,60 @@
-<ng-container *ngIf="bankClient$ | async as bankClient; else loading">
+<ng-container *ngIf="transaction$ | async as transaction">
+  <ng-container *ngIf="bankClient$ | async as bankClient; else loading">
+<ng-container *ngIf="latestTransaction$ | async as accBalance">
   <h1>{{ bankClient.name }}</h1>
   <br />
   <br />
   <h3>Deposit</h3>
-  <div class="input-group mb-5">
+  <div class="input-group mb-5" [formGroup]="form">
     <span class="input-group-text" id="basic-addon3">Enter amaount</span>
     <input
       type="text"
       class="form-control"
       id="basic-url"
       aria-describedby="basic-addon3"
+      formControlName="amount"
     />
-    <button class="btn btn-outline-primary" type="button">Continue</button>
-    <button class="btn btn-outline-danger" type="button">Cancel</button>
+    <button class="btn btn-outline-primary" type="button" (click)="save()">
+      Continue
+    </button>
+    <button class="btn btn-outline-danger" type="button" (click)="cancel()">
+      Cancel
+    </button>
   </div>
   <div>
-      <h3>New Balance: Ksh 0.00</h3>
+    <h3>New Balance: {{ accBalance }}</h3>
+
   </div>
 </ng-container>
+  </ng-container>
+</ng-container>
+<br>
+<br>
+<h3 class="text-decoration-underline">Previous Transactions:</h3>
+<table class="table table-sm table-hover" *ngIf="(transaction$ |async)!.length>0">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Transaction Id</th>
+      <th>Amount</th>
+      <th>Transaction Type</th>
+      <th>Balance</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaction of (transaction$ |async)">
+      <td>{{transaction.transactionDate}}</td>
+      <td>{{transaction.transactionId}}</td>
+      <td>{{transaction.transactionAmount}}</td>
+      <td>{{transaction.transactionType}}</td>
+      <td>{{transaction.accBalance}}</td>
+
+      <td><button class="btn btn-outline-primary" type="button">Reciept</button></td>
+    </tr>
+  </tbody>
+</table>
 
 <div>
   <ng-template #loading>Loading...</ng-template>
